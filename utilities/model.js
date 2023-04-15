@@ -1,11 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const Contact = mongoose.model({
-    nama: {
-        type: String,
-        required: true,
-    },
-    nohp: {
+const Contact = mongoose.model('Contact', {
+    name: {
         type: String,
         required: true,
     },
@@ -13,6 +9,10 @@ const Contact = mongoose.model({
         type: String,
         required: true,
     },
+    password: {
+        type: String,
+        required: true,
+    },
 })
 
-export {Contact as default}
+module.exports = Contact
