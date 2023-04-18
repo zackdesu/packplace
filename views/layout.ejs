@@ -21,57 +21,7 @@
   </head>
 
   <body>
-    <nav>
-        <h1>PackPlace</h1>
-        <div class="menu">
-            <ul>
-              <li><a href="/" class="<% if (link == '/') { %> active <% } %>">Home</a></li>
-              <li><a href="/features" class="<% if (link == '/features') { %> active <% } %>">Features</a></li>
-              <li><a href="/about" class="<% if (link == '/about') { %> active <% } %>">About</a></li>
-            </ul>
-        </div>
-
-        <div class="acc">
-          <!-- Display <992px -->
-          <ul class="d-lg-none">
-            <li class="dropstart">
-              <% if(typeof user != 'undefined'){ %>
-                    <img src="img/unnamed.png" alt="Profile Picture" class="profile dropdown-toggle" data-bs-toggle="dropdown"><% } 
-                  else { %> 
-                    <img src="img/plainpicture.png" alt="?" class="profile dropdown-toggle" data-bs-toggle="dropdown"> <% }%>            
-                      <ul class="dropdown-menu" data-bs-theme="dark">
-                        <li><a class="dropdown-item" href="/login">Log In</a></li>
-                        <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/logout">Log Out</a></li>
-                      </ul></li>
-          </ul>
-                  
-                  <% if (typeof user != 'undefined') { %>
-                    // Display >992px
-                    <ul class="d-none d-lg-block">
-                      <li class="dropstart">
-                        <img src="img/unnamed.png" alt="Profile Picture" class="profile dropdown-toggle" data-bs-toggle="dropdown">
-                          <ul class="dropdown-menu" data-bs-theme="dark">
-                            <li><a class="dropdown-item" href="/login">Log In</a></li>
-                            <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/logout">Log Out</a></li>
-                          </ul>
-                      </li>
-                    </ul>
-                    <% } else { %> 
-                      <ul class="log-sign">
-                        <li>
-                          <a href="/login" class="log-in">Log In</a>
-                        </li>
-                        <li>
-                          <a href="/signup" class="sign-up">Sign Up</a>
-                        </li>
-                      </ul>
-                      <%}%>
-        </div>
-    </nav>
+    <%- include('nav') %>
     <%- body %>
     </body>
     <script

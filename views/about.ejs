@@ -1,3 +1,53 @@
-<h1>Halo selamat datang<% if(typeof user != 'undefined'){ %>
-    <%= user.name %>!
-<% } else { %>!<% }%></h1>
+<div class="container">
+    <% if(typeof user != 'undefined'){ %>
+        <h1 class="text-center">Your Profile</h1>
+        <div class="row biodata d-flex justify-content-center mb-5 p-5">
+            <div class="col-md-6">
+              <% if (typeof errors != 'undefined') { %>
+                <div class="alert alert-danger fw-bold" role="danger">
+                        <ul>
+                            <% errors.forEach(err => { %>
+                                <li><%= err.msg%></li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <% } %>
+                <img src="img/unnamed.png" alt="Profile Picture" class="bio-profile rounded-circle m-auto d-block mb-3">
+                <form action="/editprofile" method="POST">
+                    <div class="mb-3 mt-4">
+                    <input type="hidden" name="oldEmail" value="<%= user.oldEmail || user.email%>">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="20" value="<%= user.name %>" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" required>
+                    </div>
+                    <div class="col-button d-flex justify-content-center flex-column">
+                        <button type="submit" class="btn btn-success mx-2 my-1">Edit Profile</button>
+                        <a href="#" class="btn btn-primary mx-2 my-1">Change Password</a>
+                        <a href="#" class="btn btn-danger mx-2 my-1">Delete Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="clear"></div>
+
+    <% } else { %><a href="/login">Log in</a> to continue<% }%>
+</div>

@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
         res.render('index', {
             layout: 'layout',
             title: 'PackPlace',
+            user: req.session.user,
             link: req.path
         })
     } catch (error) {
@@ -63,6 +64,7 @@ app.use('/', (req, res) => {
         .render('404', {
         layout: 'layout',
         title: 'PackPlace',
+        user: req.session.user,
         link: req.path
     })
 })

@@ -148,4 +148,10 @@ router.get('/logout', (req, res) => {
     }
 })
 
+
+// Edit profile
+router.post('/editprofile', (req, res) => {
+    res.send(req.body)
+})
+
 module.exports = router

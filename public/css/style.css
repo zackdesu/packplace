@@ -30,7 +30,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     background-color: #242726;
     padding: 20px 0;
     color: white;
@@ -109,4 +109,28 @@ li{
     .log-in, .sign-up{
         display: none;
     }
+}
+@media screen and (max-width: 767px){
+    .menu{
+        display: none;
+    }
+    nav{
+        justify-content: space-between;
+        padding: 20px;
+    }
+}
+
+/*! ABOUT */
+
+.biodata{
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.bio-profile{
+    width: 250px;
+}
+
+.clear{
+    clear: both;
 }
