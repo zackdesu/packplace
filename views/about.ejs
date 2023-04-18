@@ -1,1 +1,3 @@
-<h1>Halo selamat datang!</h1>
+<h1>Halo selamat datang<% if(typeof user != 'undefined'){ %>
+    <%= user.name %>!
+<% } else { %>!<% }%></h1>

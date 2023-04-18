@@ -1,7 +1,11 @@
+
+
+
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
 }
 
 .profile{
@@ -11,6 +15,15 @@
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile:hover{
+    box-shadow: 0 0 5px 1px;
+}
+
+.hide{
+    display: none;
 }
 
 nav{
@@ -18,10 +31,11 @@ nav{
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: rgb(0, 0, 80);
+    background-color: #242726;
     padding: 20px 0;
     color: white;
     margin-bottom: 20px;
+    box-shadow: 0px 1px 8px 4px #1b1d1c;
 }
 
 ul{
@@ -31,10 +45,20 @@ ul{
 .menu ul{
     display: flex;
     justify-content: space-between;
+    color: gray;
+}
+.menu ul li:hover{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(187, 187, 187);
+}
+
+li .active{
+    color:#fff;
 }
 
 .menu li{
-    margin: 0 20px;
+    margin: 0 3vw;
 }
 
 li a{
@@ -47,25 +71,42 @@ li{
     text-align: center;
 }
 
-.acc ul{
+.acc ul.log-sign{
     display: flex;
 }
 
 .acc li{
-    margin: 0 20px;
+    margin: 0 1.5vw;
 }
 
 .sign-up{
-    background-color: rgb(172, 64, 82);
+    background-color: rgb(182, 39, 63);
     padding: 5px 10px;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
+    box-shadow: 0px 0px 5px 1px rgb(133, 27, 45);
 }
 
 .alert ul{
     margin-bottom: 0;
     padding-left: 0;
+}
+
+.dropdown-menu{
+    margin-right: 5px !important;
+}
+
+/* media screen */
+
+@media screen and (max-width: 991px){
+    .hide{
+        display:block;
+    }
+
+    .log-in, .sign-up{
+        display: none;
+    }
 }
