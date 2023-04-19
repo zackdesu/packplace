@@ -88,6 +88,16 @@ li{
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
     box-shadow: 0px 0px 5px 1px rgb(133, 27, 45);
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+.sign-up:hover{
+    background-color: rgba(182, 39, 63, 0.822);
+    box-shadow: 0px 0px 20px 2px rgb(133, 27, 45);
 }
 
 .alert ul{

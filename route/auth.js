@@ -72,6 +72,56 @@ router.post('/login', [
         }
 })
 
+// Proses sign up
+router.post('/signup', [
+    check('email', 'Email tidak valid!')
+        .isEmail()
+        .custom(async value =>{
+        const duplicate = await Contact.findOne({email: value})
+        if(duplicate) {
+            throw `Email ${value} sudah digunakan, gunakan email lain.`
+        } 
+        return true;
+    })], async (req, res) => {
+    const errors = validationResult(req);
+    // console.log(errors)
+    if(!errors.isEmpty()){
+        res.render('signup', {
+            layout: 'layout',
+                title: 'PackPlace',
+                user: req.session.user,
+                link: req.path,
+                errors: errors.array(),
+            })
+    } else{
+        const saltRounds = 10;
+
+        const password = req.body.password
+        const salt = await bcrypt.genSalt(saltRounds);
+        const hashedPassword = await bcrypt.hash(password, salt)
+
+        req.body.password = hashedPassword;
+
+        Contact.insertMany(req.body, (() => {
+            req.session.regenerate( err => {
+                try {
+                    if(err) throw err
+
+                    req.session.user = req.body
+
+                    req.session.save( err => {
+                        if(err) throw err
+                        res.redirect('/about')
+                    })
+                } catch {
+                    res.redirect('/signup')
+                }
+            })
+        }))
+    }
+})
+
+
 // Login
 router.get('/login', (req, res) => {
     try {
@@ -97,41 +147,6 @@ router.get('/signup', (req, res) => {
         })
     } catch (error) {
         console.log(error)
-    }
-})
-
-// Proses sign up
-router.post('/signup', [
-    check('email', 'Email tidak valid!')
-        .isEmail()
-        .custom(async value =>{
-        const duplicate = await Contact.findOne({email: value})
-        if(duplicate) {
-            throw `Email ${value} sudah digunakan, gunakan email lain.`
-        } 
-        return true;
-    })], async (req, res) => {
-    const errors = validationResult(req);
-    // console.log(errors)
-    if(!errors.isEmpty()){
-        res.render('signup', {
-            layout: 'layout',
-                title: 'PackPlace',
-                user: req.session.user,
-                link: req.path,
-                errors: errors.array(),
-            })
-    } else{
-        const saltRounds = 8;
-
-        const password = req.body.password
-        const salt = await bcrypt.genSalt(saltRounds);
-        const hashedPassword = await bcrypt.hash(password, salt)
-
-        req.body.password = hashedPassword;
-        Contact.insertMany(req.body, (() => {
-            res.redirect('/')
-        }))
     }
 })
 
@@ -189,7 +204,7 @@ router.put('/about', [
 
 router.delete('/about', (req, res) => {
     Contact.deleteOne({name: req.body.confirmationName}, () => {
-        res.redirect('/')
+        res.redirect('/logout')
     })
 })
 

@@ -3,7 +3,7 @@ const express = require('express')
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session')
 const methodOverride = require('method-override')
-
+// const flash = require('connect-flash')
 // Local modules
 const authRoutes = require('./route/auth');
 
@@ -27,6 +27,9 @@ app.use(session({
     saveUninitialized: true,
     cookie: {maxAge: 1000 * 60 * 5}
 }))
+
+// Flash
+// app.use(flash());
 
 // login & signup
 app.use(authRoutes);

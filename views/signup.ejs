@@ -11,18 +11,18 @@
                         </ul>
                     </div>
                     <% } %>
-            <form action="/signup" method="POST">
+            <form action="/signup" method="post">
                 <div class="mb-3 mt-4">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="20" required>
+                <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="20" autocomplete="off" required>
                 </div>
                 <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" autocomplete="off" required>
                 </div>
                 <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" minlength="6" maxlength="20" required>
+                <input type="password" class="form-control" id="password" name="password" minlength="6" maxlength="20" autocomplete="off" required>
                 <div class="mb-3">
                 <input type="checkbox" class="form-check-input" id="showPassword">
                 <label class="form-check-label" for="showPassword">Show Password</label>

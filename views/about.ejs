@@ -43,7 +43,7 @@
             </div>
             <form action="/about?_method=DELETE" method="post">
             <div class="modal-body">
-                <h6>Type <%= user.name %> if you sure want to delete your account.</h6>
+                <h6>Type <strong><%= user.name %></strong> if you sure want to delete your account.</h6>
                 <input type="text" class="form-control" id="confirmationName" name="confirmationName" minlength="3" maxlength="20" autocomplete="off" required>
             </div>
             <div class="modal-footer">
@@ -75,4 +75,4 @@
 </div>
 
 
-<script src="script/script.js"></script>
+<script src="script/about.js"></script>
