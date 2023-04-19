@@ -2,6 +2,7 @@
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session')
+const methodOverride = require('method-override')
 
 // Local modules
 const authRoutes = require('./route/auth');
@@ -16,6 +17,8 @@ app.use(expressLayouts);
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
+// Method-override
+app.use(methodOverride('_method'))
 
 // Session
 app.use(session({

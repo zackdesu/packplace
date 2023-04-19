@@ -4,17 +4,19 @@
         <div class="row biodata d-flex justify-content-center mb-5 p-5">
             <div class="col-md-6">
               <% if (typeof errors != 'undefined') { %>
-                <div class="alert alert-danger fw-bold" role="danger">
+                <div class="alert alert-danger alert-dismissible fade show fw-bold" role="danger">
                         <ul>
                             <% errors.forEach(err => { %>
                                 <li><%= err.msg%></li>
                                 <% }) %>
                             </ul>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         <% } %>
                 <img src="img/unnamed.png" alt="Profile Picture" class="bio-profile rounded-circle m-auto d-block mb-3">
-                <form action="/editprofile" method="POST">
+                <form action="/about?_method=PUT" method="POST">
                     <div class="mb-3 mt-4">
+                    <input type="hidden" name="_id" value="<%= user._id%>">
                     <input type="hidden" name="oldEmail" value="<%= user.oldEmail || user.email%>">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="20" value="<%= user.name %>" required>
@@ -26,9 +28,29 @@
                     <div class="col-button d-flex justify-content-center flex-column">
                         <button type="submit" class="btn btn-success mx-2 my-1">Edit Profile</button>
                         <a href="#" class="btn btn-primary mx-2 my-1">Change Password</a>
-                        <a href="#" class="btn btn-danger mx-2 my-1">Delete Account</a>
+                        <button type="button" class="btn btn-danger mx-2 my-1" data-bs-toggle="modal" data-bs-target="#deleteAccount">Delete Account</button>
                     </div>
-                </form>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal fade" id="deleteAccount" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/about?_method=DELETE" method="post">
+            <div class="modal-body">
+                <h6>Type <%= user.name %> if you sure want to delete your account.</h6>
+                <input type="text" class="form-control" id="confirmationName" name="confirmationName" minlength="3" maxlength="20" autocomplete="off" required>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Nevermind</button>
+                <button type="submit" class="btn btn-danger disabled" id="deleteButton">Yes, I gonna delete my account</button>
+            </div>
+        </form>
             </div>
         </div>
 
@@ -51,3 +73,6 @@
 
     <% } else { %><a href="/login">Log in</a> to continue<% }%>
 </div>
+
+
+<script src="script/script.js"></script>
