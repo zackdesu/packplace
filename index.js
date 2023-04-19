@@ -28,9 +28,6 @@ app.use(session({
     cookie: {maxAge: 1000 * 60 * 5}
 }))
 
-// Flash
-// app.use(flash());
-
 // login & signup
 app.use(authRoutes);
 
