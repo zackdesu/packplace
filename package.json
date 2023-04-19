@@ -21,9 +21,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.12.13"
   },
-  "scripts": {
-    "start": "node ."
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zackdesu/packplace.git"
