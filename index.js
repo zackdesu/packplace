@@ -1,3 +1,5 @@
+// dotenv
+require('dotenv').config();
 // Express modules
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts');
@@ -22,7 +24,7 @@ app.use(methodOverride('_method'))
 
 // Session
 app.use(session({
-    secret: 'secret',
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
     cookie: {maxAge: 1000 * 60 * 5}

@@ -1,6 +1,10 @@
+require('dotenv').config();
+
+const uri = process.env.DB_URL
+
 const mongoose = require('mongoose');
 try {
-    mongoose.connect('mongodb://127.0.0.1:27017/packplace', {
+    mongoose.connect(uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
