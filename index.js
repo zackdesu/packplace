@@ -8,6 +8,7 @@ const methodOverride = require('method-override')
 // const flash = require('connect-flash')
 // Local modules
 const admin = require('./route/admin')
+const adminID = process.env.ADMIN_ID
 const authRoutes = require('./route/auth');
 
 // Calling Import
@@ -17,7 +18,7 @@ const port = 3000;
 // Templating Engine
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
-app.use(express.static('public'));
+app.use('/files', express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 // Method-override
@@ -54,13 +55,13 @@ app.get('/', (req, res) => {
 // about
 app.get('/about', (req, res) => {
     try {
-        // console.log(req.session.user._id)
         res.render('about', {
             layout: 'layout',
             title: 'PackPlace',
             user: req.session.user,
             admin: req.session.user,
-            link: req.path
+            link: req.path,
+            adminID
         })
     } catch (error) {
         console.log(error)

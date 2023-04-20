@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
-
+const app = express()
 const router = express.Router();
 
 // Contact
@@ -15,7 +15,7 @@ const admin = process.env.ADMIN_ID
 
 router.get('/admin', isUserAdmin, async (req, res) => {
     const allContacts = await Contact.find()
-    const contacts = allContacts.filter((user) => user.name != 'admin')
+    const contacts = allContacts.filter((user) => user._id != admin)
     // console.log(Contacts)
     res.render('admin', {
         layout: 'layout',
@@ -23,6 +23,29 @@ router.get('/admin', isUserAdmin, async (req, res) => {
         user: req.session.user,
         link: req.path,
         contacts
+    })
+})
+
+// Detail
+router.get('/admin/:id', async (req, res) => {
+    if(req.params.id == admin){
+        res.redirect('/admin')
+        return false;
+    }
+    const findcontact = await Contact.findOne({_id: req.params.id})
+    res.render('detail', {
+        layout: 'layout',
+        title: findcontact.name + ' detail.',
+        user: req.session.user,
+        link: req.path,
+        findcontact
+    })
+})
+
+// Delete Contacts from Admin
+router.delete('/admin', (req, res) => {
+    Contact.deleteOne({name: req.body.confirmationName}, () => {
+        res.redirect('/admin')
     })
 })
 
