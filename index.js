@@ -7,6 +7,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 // const flash = require('connect-flash')
 // Local modules
+const admin = require('./route/admin')
 const authRoutes = require('./route/auth');
 
 // Calling Import
@@ -33,6 +34,9 @@ app.use(session({
 // login & signup
 app.use(authRoutes);
 
+// admin
+app.use(admin)
+
 // Homepage
 app.get('/', (req, res) => {
     try {
@@ -50,10 +54,12 @@ app.get('/', (req, res) => {
 // about
 app.get('/about', (req, res) => {
     try {
+        // console.log(req.session.user._id)
         res.render('about', {
             layout: 'layout',
             title: 'PackPlace',
             user: req.session.user,
+            admin: req.session.user,
             link: req.path
         })
     } catch (error) {
@@ -70,9 +76,9 @@ app.use('/', (req, res) => {
         layout: 'layout',
         title: 'PackPlace',
         user: req.session.user,
+        admin: req.session.user,
         link: req.path
     })
 })
-
 
 app.listen(port, () => console.log(`PackPlace is listening at http://localhost:${port}`));

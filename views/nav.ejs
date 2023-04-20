@@ -20,6 +20,10 @@
                       <li><a class="dropdown-item" href="/">Home</a></li>
                       <li><a class="dropdown-item" href="/features">Features</a></li>
                       <li><a class="dropdown-item" href="/about">About</a></li>
+                      <% if(typeof user != 'undefined'){
+                        if(user.name == 'admin'){ %>
+                          <li><a class="dropdown-item" href="/admin">Admin</a></li>
+                      <% }} %>
                       <li><hr class="dropdown-divider"></li>
                       <% if(typeof user != 'undefined'){ %>
                           <li><a class="dropdown-item" href="https://github.com/zackdesu" target="_blank">About Developer</a></li>
@@ -42,8 +46,11 @@
                 <img src="img/plainpicture.png" alt="?" class="profile dropdown-toggle" data-bs-toggle="dropdown"> <% }%>            
                   <ul class="dropdown-menu" data-bs-theme="dark">
                     <% if(typeof user != 'undefined'){ %>
-                        <li><a class="dropdown-item" href="/about">About</a></li>
-                        <li><a class="dropdown-item" href="https://github.com/zackdesu" target="_blank">About Developer</a></li>
+                      <li><a class="dropdown-item" href="/about">About</a></li>
+                      <li><a class="dropdown-item" href="https://github.com/zackdesu" target="_blank">About Developer</a></li>
+                      <% if(user.name == 'admin'){ %>
+                          <li><a class="dropdown-item" href="/admin">Admin</a></li>
+                      <% } %>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/logout">Log Out</a></li>
                         <% } 
@@ -63,6 +70,10 @@
                       <ul class="dropdown-menu" data-bs-theme="dark">
                         <li><a class="dropdown-item" href="/about">About</a></li>
                         <li><a class="dropdown-item" href="https://github.com/zackdesu" target="_blank">About Developer</a></li>
+                        <% if(typeof user != 'undefined'){
+                        if(user.name == 'admin'){ %>
+                          <li><a class="dropdown-item" href="/admin">Admin</a></li>
+                      <% }} %>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/logout">Log Out</a></li>
                       </ul>

@@ -12,7 +12,6 @@ const Contact = require('../utilities/model')
 // Calling Import
 const router = express.Router();
 
-
 // Proses login #1 ( Wajib diletakkan di baris sesudah session! )
 router.post('/login', [
     check('email', 'Email tidak valid!')
@@ -123,7 +122,7 @@ router.post('/signup', [
 
 
 // Login
-router.get('/login', (req, res) => {
+router.get('/login', isUserLogin, (req, res) => {
     try {
         res.render('login', {
             layout: 'layout',
@@ -137,7 +136,7 @@ router.get('/login', (req, res) => {
 })
 
 // Sign Up Page
-router.get('/signup', (req, res) => {
+router.get('/signup', isUserLogin, (req, res) => {
     try {
         res.render('signup', {
             layout: 'layout',
@@ -207,5 +206,13 @@ router.delete('/about', (req, res) => {
         res.redirect('/logout')
     })
 })
+
+function isUserLogin(req, res, next) {
+    if(req.session.user != undefined){
+        res.redirect('/about')
+    }
+    return next()
+}
+
 
 module.exports = router
