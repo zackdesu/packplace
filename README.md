@@ -10,7 +10,7 @@ Project ini hanya dibuat iseng.
 
 - [Tutorial NodeJS by Web Programming UNPAS](https://www.youtube.com/watch?v=sSLJx5t4OJ4&list=PLFIM0718LjIW-XBdVOerYgKegBtD6rSfD)
 
-- [OpenAI NodeJS](https://openai.com)
+- [OpenAI](https://openai.com)
 
 - [Node.js Passport Login System Tutorial by Web Dev Simplified](https://youtu.be/-RCnNyD0L-s)
 
