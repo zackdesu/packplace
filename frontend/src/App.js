@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+
+const API_BASE = "http://localhost:3001";
 
 function App() {
+  const [name, setName] = useState([]);
+
+  useEffect(() => {
+    fetchAPI();
+  }, []);
+
+  const fetchAPI = () => {
+    fetch(API_BASE + "/tes")
+      .then((res) => res.json())
+      .then((data) => setName(data))
+      .catch((error) => console.error("Error", error));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome, zack</h1>
+      <h1>Account List</h1>
+      <div className="account">
+        {name.map((name) => (
+          <li key={name._id} className="name">
+            Name: {name.name}
+          </li>
+        ))}
+      </div>
     </div>
   );
 }

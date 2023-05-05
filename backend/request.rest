@@ -1,12 +1,22 @@
-GET http://localhost:3000/tes
+GET http://localhost:3001/tes
 
 ###
 
-POST http://localhost:3000/tes/new
+POST http://localhost:3001/tes/new
 Content-Type: application/json
 
 {
-    "name": "Alok"
+    "name": "kok"
 }
 
 ###
+DELETE http://localhost:3001/tes/delete/6454963845a0642f0066d9c0
+
+###
+
+PUT http://localhost:3001/tes/edit/6454963845a0642f0066d9c0
+Content-Type: application/json
+
+{
+    "name": "kok"
+}
