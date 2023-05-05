@@ -1,0 +1,12 @@
+GET http://localhost:3000/tes
+
+###
+
+POST http://localhost:3000/tes/new
+Content-Type: application/json
+
+{
+    "name": "Alok"
+}
+
+###
