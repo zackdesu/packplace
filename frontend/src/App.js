@@ -1,33 +1,24 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./Pages/About";
+import Error404 from "./Pages/Error404";
 
-const API_BASE = "http://localhost:3001";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 function App() {
-  const [name, setName] = useState([]);
-
-  useEffect(() => {
-    fetchAPI();
-  }, []);
-
-  const fetchAPI = () => {
-    fetch(API_BASE + "/tes")
-      .then((res) => res.json())
-      .then((data) => setName(data))
-      .catch((error) => console.error("Error", error));
-  };
-
   return (
-    <div className="App">
-      <h1>Welcome, zack</h1>
-      <h1>Account List</h1>
-      <div className="account">
-        {name.map((name) => (
-          <li key={name._id} className="name">
-            Name: {name.name}
-          </li>
-        ))}
-      </div>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
