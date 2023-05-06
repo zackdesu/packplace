@@ -14,24 +14,34 @@ Project ini hanya dibuat iseng.
 
 - [Node.js Passport Login System Tutorial by Web Dev Simplified](https://youtu.be/-RCnNyD0L-s)
 
+- [Tutorial Lengkap React JS Untuk Pemula (React Hooks) by M Fikri](https://www.youtube.com/watch?v=mNqZGTD-8os)
+
+- [Build a FULL STACK app with React, Express, Node & Mongo MERN STACK by Tyler Potts](https://youtu.be/R81g-2r6ynM)
+
+- [🍔 React JS From 0 🍔 by Dea Afrizal](https://www.youtube.com/watch?v=3Jgju76gS2g&list=PLc6SEcJkQ6DxQmmUzUilxRUNrJyeHDmX7)
+
 ## Tech Stack
 
 **Server:** [NodeJS](https://nodejs.org), [Express](https://www.npmjs.com/package/express)
 
 **Database:** [MongoDB](https://www.mongodb.com/)
 
-**View Engine:** [EJS](https://www.npmjs.com/package/ejs)
+**Framework:** [React](https://react.dev)
 
-**Modules:**
+**_Modules:_**
 
-- [Express EJS Layouts](https://www.npmjs.com/package/express-ejs-layouts)
+**Backend:**
+
 - [Express Validator](https://www.npmjs.com/package/express-validator)
 - [Express Session](https://www.npmjs.com/package/express-session)
-- [Method Override](https://www.npmjs.com/package/method-override)
 - [Mongoose](https://www.npmjs.com/package/mongoose)
 - [BcryptJS](https://www.npmjs.com/package/bcryptjs)
-- [Connect Flash](https://www.npmjs.com/package/connect-flash)
 - [dotenv](https://www.npmjs.com/package/dotenv)
+
+**Frontend:**
+
+- [Axios](https://www.npmjs.com/package/axios)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
 
 ## Authors
 
