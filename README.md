@@ -28,9 +28,7 @@ Project ini hanya dibuat iseng.
 
 **Framework:** [React](https://react.dev)
 
-**_Modules:_**
-
-**Backend:**
+**Backend Modules:**
 
 - [Express Validator](https://www.npmjs.com/package/express-validator)
 - [Express Session](https://www.npmjs.com/package/express-session)
@@ -38,7 +36,7 @@ Project ini hanya dibuat iseng.
 - [BcryptJS](https://www.npmjs.com/package/bcryptjs)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 
-**Frontend:**
+**Frontend Modules:**
 
 - [Axios](https://www.npmjs.com/package/axios)
 - [React Router DOM](https://www.npmjs.com/package/react-router-dom)
