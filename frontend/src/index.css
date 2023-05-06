@@ -1,11 +1,15 @@
-
-
-
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
+}
+
+.error{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
 }
 
 .profile{
@@ -38,6 +42,10 @@ nav{
     box-shadow: 0px 1px 8px 4px #1b1d1c;
 }
 
+h1.logo{
+    cursor: pointer;
+}
+
 ul{
     margin-bottom: 0;
 }
@@ -59,6 +67,7 @@ li .active{
 
 .menu li{
     margin: 0 3vw;
+    cursor: pointer;
 }
 
 li a{
@@ -66,7 +75,7 @@ li a{
     color: inherit;
 }
 
-li{
+nav li{
     list-style: none;
     text-align: center;
 }
