@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Page = ({data}:any) => {
+const Page = () => {
   return (
-    <div>Page {data}</div>
+    <div>Page</div>
   )
 }
 
