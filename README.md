@@ -1,6 +1,6 @@
 # Packplace
 
-Project ini adalah project Create, Read, Update & Delete (CRUD) yang saya kembangkan untuk bagian desainnya. Project ini bisa digunakan secara bebas jika ingin membuat website model CRUD dengan bahasa programming EJS.
+Project ini adalah project Create, Read, Update & Delete (CRUD) yang saya kembangkan untuk bagian desainnya. Project ini bisa digunakan secara bebas jika ingin membuat website model CRUD dengan View Engine EJS.
 
 ## Demo
 
