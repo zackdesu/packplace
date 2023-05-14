@@ -1,10 +1,12 @@
 # Packplace
 
-Project ini hanya dibuat iseng.
+Project ini adalah project Create, Read, Update & Delete (CRUD) yang saya kembangkan untuk bagian desainnya. Project ini bisa digunakan secara bebas jika ingin membuat website model CRUD dengan bahasa programming EJS.
 
 ## Demo
 
 [PackPlace](http://www.packplace.my.id)
+
+Note: *Mungkin websitenya sudah mati karena sudah tidak saya urus lagi. Jika ingin mencoba demonya, kalian bisa clone project ini kedalam git kalian dan menjalankan command `node .` / `node index.js`.*
 
 ## Acknowledgements
 
